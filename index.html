@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+</head>
+<body>
+
+<h2>Welcome {{ username }}</h2>
+<a href="/cart">🛒 Cart</a> |
+<a href="/orders">📦 Orders</a> |
+<a href="/logout">Logout</a>
+
+<hr>
+
+{% for p in products %}
+<div style="border:1px solid #ccc; padding:10px; width:200px; display:inline-block; margin:10px;">
+    <img src="{{ url_for('static', filename=p.image) }}" width="180" height="120">
+    <h3>{{ p.name }}</h3>
+    <p>₹ {{ p.price }}</p>
+
+    <form method="POST" action="/add_to_cart">
+        <input type="hidden" name="product" value="{{ p.name }}">
+        <button>Add to Cart</button>
+    </form>
+</div>
+{% endfor %}
+
+</body>
+</html>

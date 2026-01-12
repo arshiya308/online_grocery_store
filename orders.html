@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Orders</title>
+</head>
+<body>
+
+<h2>🎉 Order Placed Successfully!</h2>
+
+{% if orders %}
+    <h3>Your Orders:</h3>
+    <ul>
+    {% for item in orders %}
+        <li>{{ item }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No orders yet</p>
+{% endif %}
+
+<br>
+<a href="/products">Back to Products</a> |
+<a href="/logout">Logout</a>
+
+</body>
+</html>
