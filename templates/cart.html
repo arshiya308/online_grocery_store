@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cart</title>
+</head>
+<body>
+
+<h2>{{ username }}'s Cart</h2>
+
+{% if cart %}
+<table border="1" cellpadding="10">
+<tr>
+    <th>Item</th>
+    <th>Qty</th>
+    <th>Price</th>
+</tr>
+
+{% for item in cart %}
+<tr>
+    <td>{{ item.name }}</td>
+    <td>{{ item.qty }}</td>
+    <td>₹ {{ item.price }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<h3>Total: ₹ {{ total }}</h3>
+
+<a href="/place_order">Place Order</a>
+{% else %}
+<p>Cart is empty</p>
+{% endif %}
+
+<br><br>
+<a href="/products">Back to Products</a>
+
+</body>
+</html>
